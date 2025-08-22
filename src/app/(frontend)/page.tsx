@@ -3,16 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getPayload } from 'payload'
 import React from 'react'
+import { formatPrice } from '@/utils/formatPrice'
 import './globals.css'
-
-function formatPrice(priceCents: number) {
-  return priceCents === 0
-    ? 'Free'
-    : (priceCents / 100).toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      })
-}
 
 export default async function HomePage() {
   const payloadConfig = await config
@@ -26,15 +18,11 @@ export default async function HomePage() {
 
   return (
     <div>
-      <header>
-        {/* logo */}
-        <h1>Fish Farm Samples</h1>
-      </header>
       <div className="flex flex-col gap-4 mx-auto max-w-3xl">
         {packs.docs.map((pack) => {
           if (typeof pack.front_cover === 'number') return null
           return (
-            <Link href={`/packs/${pack.slug}`} key={pack.slug} className="flex gap-4 h-20">
+            <Link href={`/packs/${pack.slug}`} key={pack.slug} className="flex gap-4">
               <div className="relative h-full aspect-square">
                 <Image
                   src={pack.front_cover.url!} // Ensure front_cover is not null

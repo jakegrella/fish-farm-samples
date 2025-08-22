@@ -170,6 +170,7 @@ export interface Pack {
   short_description: string;
   front_cover: number | Media;
   price_cents: number;
+  buy_url: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -285,6 +286,7 @@ export interface PacksSelect<T extends boolean = true> {
   short_description?: T;
   front_cover?: T;
   price_cents?: T;
+  buy_url?: T;
   updatedAt?: T;
   createdAt?: T;
 }

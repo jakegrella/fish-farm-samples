@@ -38,5 +38,12 @@ export const Packs: CollectionConfig = {
       required: true,
       label: 'Price (in cents)',
     },
+    {
+      name: 'buy_url',
+      type: 'text',
+      required: true,
+      label: 'Buy URL (LemonSqueezy)',
+      defaultValue: 'https://app.lemonsqueezy.com',
+    },
   ],
 }
