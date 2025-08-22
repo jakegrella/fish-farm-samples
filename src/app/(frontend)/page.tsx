@@ -24,10 +24,14 @@ export default async function HomePage() {
     limit: 100,
     depth: 0,
   })
+  console.log('Packs:', packs)
 
   return (
     <div className="home">
-      <header>{/* logo */}</header>
+      <header>
+        {/* logo */}
+        <h1>Fish Farm Samples</h1>
+      </header>
       {packs.docs.map((pack) => {
         if (typeof pack.front_cover === 'number') return null
         return (
