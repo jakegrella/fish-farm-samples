@@ -1,7 +1,11 @@
 import config from '@/payload.config'
 import { getPayload } from 'payload'
 
-export default async function PackPage({ params: { slug } }: { params: { slug: string } }) {
+export default async function PackPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params
+
+  const { slug } = params
+
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 

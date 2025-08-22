@@ -1,10 +1,9 @@
+import config from '@/payload.config'
 import Image from 'next/image'
+import Link from 'next/link'
 import { getPayload } from 'payload'
 import React from 'react'
-
-import config from '@/payload.config'
-import './styles.css'
-import Link from 'next/link'
+import './globals.css'
 
 function formatPrice(priceCents: number) {
   return priceCents === 0
