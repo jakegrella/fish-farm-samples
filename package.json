@@ -1,8 +1,7 @@
 {
   "name": "fish-farm-samples",
   "version": "1.0.0",
-  "description": "A blank template to get started with Payload 3.0",
-  "license": "MIT",
+  "description": "Fish Farm Samples is a digital audio sample library and store.",
   "type": "module",
   "scripts": {
     "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",

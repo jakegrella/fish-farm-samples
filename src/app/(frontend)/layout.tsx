@@ -5,8 +5,8 @@ import fish from '../../../public/fish-logo.svg'
 import Link from 'next/link'
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  description: 'Unique and highly specific loops and one shots.',
+  title: 'Fish Farm Samples',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
