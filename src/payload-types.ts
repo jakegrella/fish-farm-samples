@@ -168,9 +168,11 @@ export interface Pack {
   name: string;
   slug: string;
   short_description: string;
+  long_description: string;
   front_cover: number | Media;
   price_cents: number;
   buy_url: string;
+  preview_audio: number | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -284,9 +286,11 @@ export interface PacksSelect<T extends boolean = true> {
   name?: T;
   slug?: T;
   short_description?: T;
+  long_description?: T;
   front_cover?: T;
   price_cents?: T;
   buy_url?: T;
+  preview_audio?: T;
   updatedAt?: T;
   createdAt?: T;
 }

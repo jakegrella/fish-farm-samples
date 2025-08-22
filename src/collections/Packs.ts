@@ -26,6 +26,12 @@ export const Packs: CollectionConfig = {
       label: 'Short Description',
     },
     {
+      name: 'long_description',
+      type: 'text',
+      required: true,
+      label: 'Long Description',
+    },
+    {
       name: 'front_cover',
       type: 'upload',
       relationTo: 'media',
@@ -43,7 +49,13 @@ export const Packs: CollectionConfig = {
       type: 'text',
       required: true,
       label: 'Buy URL (LemonSqueezy)',
-      defaultValue: 'https://app.lemonsqueezy.com',
+    },
+    {
+      name: 'preview_audio',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+      label: 'Preview Audio (MP3)',
     },
   ],
 }

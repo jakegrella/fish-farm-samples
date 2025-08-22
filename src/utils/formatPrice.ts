@@ -1,8 +1,13 @@
 export function formatPrice(priceCents: number) {
-  return priceCents === 0
-    ? 'Free'
-    : (priceCents / 100).toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      })
+  if (priceCents === 0) return 'Free'
+  // if price is round to the dollar, show without decimals
+  const isRoundDollar = priceCents % 100 === 0
+  if (isRoundDollar) {
+    return `$${priceCents / 100}`
+  } else {
+    return (priceCents / 100).toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    })
+  }
 }

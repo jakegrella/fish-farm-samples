@@ -5,6 +5,7 @@ import { getPayload } from 'payload'
 import React from 'react'
 import { formatPrice } from '@/utils/formatPrice'
 import './globals.css'
+import { mozillaText } from '@/utils/fonts'
 
 export default async function HomePage() {
   const payloadConfig = await config
@@ -22,19 +23,26 @@ export default async function HomePage() {
         {packs.docs.map((pack) => {
           if (typeof pack.front_cover === 'number') return null
           return (
-            <Link href={`/packs/${pack.slug}`} key={pack.slug} className="flex gap-4">
-              <div className="relative h-full aspect-square">
+            <Link
+              href={`/packs/${pack.slug}`}
+              key={pack.slug}
+              className="flex gap-2 items-stretch min-h-[100px] md:min-h-[200px] hover:bg-gray-100"
+            >
+              <div className="relative flex-shrink-0 h-[100px] w-[100px] md:h-[200px] md:w-[200px]">
                 <Image
-                  src={pack.front_cover.url!} // Ensure front_cover is not null
+                  src={pack.front_cover.url!}
                   alt={`Cover art of sample pack ${pack.name}`}
                   height={200}
                   width={200}
+                  className="object-cover"
                 />
               </div>
-              <div>
-                <h3>{pack.name}</h3>
-                <p>{pack.short_description}</p>
-                <h3 className="mt-2">{formatPrice(pack.price_cents)}</h3>
+              <div className="flex flex-col flex-1 min-w-0">
+                <h2 className="text-pretty pb-1 !font-bold">{pack.name}</h2>
+                <h3 className="break-words text-pretty text-xs">{pack.short_description}</h3>
+                <p className={`${mozillaText.className} text-gray-500 tracking-tight mt-2 text-xs`}>
+                  {formatPrice(pack.price_cents)}
+                </p>
               </div>
             </Link>
           )
