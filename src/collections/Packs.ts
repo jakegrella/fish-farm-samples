@@ -5,7 +5,6 @@ export const Packs: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
   },
-  auth: true,
   fields: [
     {
       name: 'name',
