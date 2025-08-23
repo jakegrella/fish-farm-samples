@@ -8,7 +8,7 @@ import CreateLemonSqueezyScript from './CreateLemonSqueezyScript'
 
 function buyButtonText(price: number) {
   if (price === 0) return 'Free — Get Pack'
-  return `${formatPrice(price)} — Buy Now`
+  return `${formatPrice(price)} — BUY NOW`
 }
 
 export default async function PackPage(props: { params: Promise<{ slug: string }> }) {

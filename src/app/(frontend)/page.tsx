@@ -37,12 +37,14 @@ export default async function HomePage() {
                   className="object-cover"
                 />
               </div>
-              <div className="flex flex-col flex-1 min-w-0">
-                <h2 className="text-pretty pb-1 !font-bold">{pack.name}</h2>
-                <h3 className="break-words text-pretty text-xs">{pack.short_description}</h3>
-                <p className={`${mozillaText.className} text-gray-500 tracking-tight mt-2 text-xs`}>
+              <div className="flex flex-col flex-1 gap-2">
+                <div>
+                  <h2 className="text-pretty !font-bold">{pack.name}</h2>
+                  <h3 className="break-words text-pretty text-xs">{pack.short_description}</h3>
+                </div>
+                <span className={`${mozillaText.className} text-gray-500 tracking-tight text-xs`}>
                   {formatPrice(pack.price_cents)}
-                </p>
+                </span>
               </div>
             </Link>
           )
