@@ -1,9 +1,7 @@
 import React from 'react'
 import './globals.css'
-import Image from 'next/image'
-import fish from '../../../public/fish-logo.svg'
-import Link from 'next/link'
 import { ibmPlexSans, mozillaText } from '@/utils/fonts'
+import Header from './components/Header'
 
 export const metadata = {
   description: 'Unique and highly specific loops and one shots.',
@@ -16,11 +14,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${ibmPlexSans.className} p-4 flex flex-col`}>
-        <header className="flex justify-center mb-10 md:mb-20">
-          <Link href="/">
-            <Image src={fish} alt="Fish Farm Samples logo" width={32} />
-          </Link>
-        </header>
+        <Header />
         <main className="grow">{children}</main>
         <footer className="uppercase">
           <span className={`${mozillaText.className} text-gray-500 tracking-tight text-xs`}>
