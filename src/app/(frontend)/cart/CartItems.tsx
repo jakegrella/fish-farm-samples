@@ -28,32 +28,40 @@ export default function CartItems(props: { packs: Pack[] }) {
   return packsInCart.length === 0 ? (
     <p>Your cart is empty.</p>
   ) : (
-    <ul className="flex flex-col gap-4">
-      {packsInCart.map((pack) => {
-        if (typeof pack.front_cover === 'number' || typeof pack.preview_audio === 'number')
-          return null
-        return (
-          <li key={pack.slug} className="flex gap-4">
-            <div className="relative flex-shrink-0 aspect-square h-[100px] w-[100px]">
-              <Image
-                src={pack.front_cover.url!}
-                alt={`Cover art of sample pack ${pack.name}`}
-                fill
-                priority
-                sizes="(max-width: 640px) 100vw, 400px"
-                className="object-cover"
-              />
-            </div>
-            <div className="flex flex-col items-start gap-2">
-              <h1 className="!font-bold">{pack.name}</h1>
-              <span>{formatPrice(pack.price_cents)}</span>
-              <button className="text-xs" onClick={() => handleRemovePackFromCart(pack.slug)}>
-                Remove
-              </button>
-            </div>
-          </li>
-        )
-      })}
-    </ul>
+    <div>
+      <ul className="flex flex-col gap-4">
+        {packsInCart.map((pack) => {
+          if (typeof pack.front_cover === 'number' || typeof pack.preview_audio === 'number')
+            return null
+          return (
+            <li key={pack.slug} className="flex gap-4">
+              <div className="relative flex-shrink-0 aspect-square h-[100px] w-[100px]">
+                <Image
+                  src={pack.front_cover.url!}
+                  alt={`Cover art of sample pack ${pack.name}`}
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 100vw, 400px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col items-start gap-2">
+                <h1 className="!font-bold">{pack.name}</h1>
+                <span>{formatPrice(pack.price_cents)}</span>
+                <button className="text-xs" onClick={() => handleRemovePackFromCart(pack.slug)}>
+                  Remove
+                </button>
+              </div>
+            </li>
+          )
+        })}
+      </ul>
+      <div className="mt-20">
+        <span>
+          Subtotal:{' '}
+          {formatPrice(packsInCart.reduce((subtotal, pack) => subtotal + pack.price_cents, 0))}
+        </span>
+      </div>
+    </div>
   )
 }

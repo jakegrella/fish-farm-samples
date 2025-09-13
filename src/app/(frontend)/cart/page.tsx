@@ -1,6 +1,7 @@
 import config from '@/payload.config'
 import { getPayload } from 'payload'
 import CartItems from './CartItems'
+import Link from 'next/link'
 
 export default async function CartPage() {
   const payloadConfig = await config
@@ -14,7 +15,9 @@ export default async function CartPage() {
     <main>
       <h1 className="mb-8">Cart</h1>
       <CartItems packs={data.docs} />
-      <button className="mt-20 bg-black text-white px-4 py-2">Checkout</button>
+      <Link href="/checkout" className="mt-4 bg-black text-white px-4 py-2">
+        Checkout
+      </Link>
     </main>
   )
 }
